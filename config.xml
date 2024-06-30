@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/JWBroadcasting" version="1.0.0" viewmodes="fullscreen">
+    <access origin="*" subdomains="true"></access>
+    <tizen:application id="yBu5WwUURH.JWBroadcasting" package="yBu5WwUURH" required_version="2.3"/>
+    <author href="geomtech.fr" email="contact@geomtech.fr">GeomTech</author>
+    <content src="index.html"/>
+    <description>Application non officielle permettant de regarder les contenus vidéos et audios de JW.ORG</description>
+    <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
+    <icon src="71kCT-lmnDL.png"/>
+    <name>JWBroadcasting</name>
+    <name xml:lang="fr-fr">JW Télédiffusion</name>
+    <name xml:lang="en-gb">JW Broadcasting</name>
+    <tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    <tizen:profile name="tv-samsung"/>
+    <tizen:setting screen-orientation="landscape" context-menu="disable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+</widget>
