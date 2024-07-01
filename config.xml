@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/JWBroadcasting" version="1.0.0" viewmodes="fullscreen">
-    <access origin="*" subdomains="true"></access>
-    <tizen:application id="yBu5WwUURH.JWBroadcasting" package="yBu5WwUURH" required_version="2.3"/>
-    <author href="geomtech.fr" email="contact@geomtech.fr">GeomTech</author>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://geomtech.fr" version="1.0.0" viewmodes="maximized">
+    <access origin="*" subdomains="true"/>
+    <tizen:application id="1RZeB4xmS3.JWMedia" package="1RZeB4xmS3" required_version="2.3"/>
+    <author href="https://geomtech.fr" email="jwmedia@geomtech.fr">GeomTech</author>
     <content src="index.html"/>
-    <description>Application non officielle permettant de regarder les contenus vidéos et audios de JW.ORG</description>
     <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
-    <icon src="71kCT-lmnDL.png"/>
-    <name>JWBroadcasting</name>
-    <name xml:lang="fr-fr">JW Télédiffusion</name>
-    <name xml:lang="en-gb">JW Broadcasting</name>
-    <tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
+    <icon src="jwmedias.png"/>
+    <tizen:metadata key="http://samsung.com/tv/metadata/prelaunch.support" value="true"/>
+    <tizen:metadata key="http://tizen.org/metadata/app_ui_type/base_screen_resolution" value="extensive"/>
+    <name>JWMedia</name>
     <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
     <tizen:profile name="tv-samsung"/>
-    <tizen:setting screen-orientation="landscape" context-menu="disable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+    <tizen:setting screen-orientation="landscape" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
 </widget>
