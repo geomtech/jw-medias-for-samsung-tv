@@ -25,17 +25,12 @@ var init = function () {
     document.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
     	case 37: //LEFT arrow
-			showControls();
-			windBackward();
     		break;
     	case 38: //UP arrow
     		break;
     	case 39: //RIGHT arrow
-			showControls();
-			windForward();
     		break;
     	case 40: //DOWN arrow
-			showControls();
     		break;
 		case 10252: // PLAY PAUSE button
 			if (videoElem.paused) {
@@ -145,8 +140,21 @@ var init = function () {
 			}
 			break;
 		}
-		}, false);
-	};
+	}, false);
+
+	SpatialNavigation.init();
+
+	// Define navigable elements (anchors and elements with "focusable" class).
+	SpatialNavigation.add({
+		selector: '#player, .qualitySelect'
+	});
+
+	SpatialNavigation.makeFocusable();
+
+	// Focus the first navigable element.
+	SpatialNavigation.focus();
+};
+
 // window.onload can work without <body onload="">
 window.onload = init;
 
