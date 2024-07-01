@@ -18,14 +18,17 @@ var init = function () {
     document.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
     	case 37: //LEFT arrow
+			showControls();
 			windBackward();
     		break;
     	case 38: //UP arrow
     		break;
     	case 39: //RIGHT arrow
+			showControls();
 			windForward();
     		break;
     	case 40: //DOWN arrow
+			showControls();
     		break;
 		case 10252: // PLAY PAUSE button
 			if (videoElem.paused) {
@@ -133,26 +136,7 @@ function getVideo() {
 		console.log(sources);
 
 		sources.forEach(function (source) {
-			console.log(source["label"]);
-			if (source["label"] == "720p") {
-				$("#player").append("<source src='"+ source["progressiveDownloadURL"] +"' label='"+ source["label"] +"' type='video/mp4'/>");
-			} else {
-				if (source["label"] == "480p") {
-					if (sources.length < 1) {
-						$("#player").append("<source src='"+ source["progressiveDownloadURL"] +"' label='"+ source["label"] +"' type='video/mp4'/>");
-					}
-				} else {
-					if (source["label"] == "360p") {
-						if (sources.length < 1) {
-							$("#player").append("<source src='"+ source["progressiveDownloadURL"] +"' label='"+ source["label"] +"' type='video/mp4'/>");
-						}
-					} else {
-						if (sources.length < 1) {
-							$("#player").append("<source src='"+ source["progressiveDownloadURL"] +"' label='"+ source["label"] +"' type='video/mp4'/>");
-						}
-					}
-				}
-			}
+			$("#player").append("<source src='"+ source["progressiveDownloadURL"] +"' label='"+ source["label"] +"' type='video/mp4'/>");
 		});
 	});
 }
