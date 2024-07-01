@@ -1,3 +1,5 @@
+var firstTimeLaunch = true;
+
 //Initialize function
 var init = function () {
 	let videoElem = document.getElementById("player");
@@ -13,22 +15,22 @@ var init = function () {
             // Something you want to do when resume.
         }
     });
+
+	// add eventlistener for any keydown event
+	document.addEventListener('keydown', function(e) {
+		showControls();
+	});
  
     // add eventListener for keydown
     document.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
     	case 37: //LEFT arrow
-			showControls();
-			windBackward();
     		break;
     	case 38: //UP arrow
     		break;
     	case 39: //RIGHT arrow
-			showControls();
-			windForward();
     		break;
     	case 40: //DOWN arrow
-			showControls();
     		break;
 		case 10252: // PLAY PAUSE button
 			if (videoElem.paused) {
@@ -51,6 +53,45 @@ var init = function () {
 				window.location.href = "category.html?category=" + urlCategory;
 			}
     		break;
+		// list of key codes for Samsung Smart TV remote control
+		// - https://keycode.info/
+		// - https://developer.samsung.com/smarttv/develop/guides/user-interaction/remote-control.html
+		// - https://developer.samsung.com/smarttv/develop/api-references/samsung-product-api-references/samsungproductapi-references-remotecontrol-keycodes.html
+		case 10006: // EXIT button
+			if (urlCategory == "FeaturedLibraryVideos") {
+				window.location.href = "index.html";
+			}
+			else {
+				window.location.href = "category.html?category=" + urlCategory;
+			}
+			break;
+		case 10182: // INFO button
+			showControls();
+			break;
+		case 10190: // TOOLS button
+			showControls();
+			break;
+		case 10134: // CH LIST button
+			showControls();
+			break;
+		case 10132: // MENU button
+			showControls();
+			break;
+		case 10112: // GUIDE button
+			showControls();
+			break;
+		case 10113: // TOOLS button
+			showControls();
+			break;
+		case 10190: // TOOLS button
+			showControls();
+			break;
+		case 10191: // MORE button
+			showControls();
+			break;
+		case 10132: // MENU button
+			showControls();
+			break;
     	default:
     		console.log('Key code : ' + e.keyCode);
     		break;
@@ -59,7 +100,17 @@ var init = function () {
 
 	getVideo();
 
-	videoElem.addEventListener('error', function() {
+	// add eventlistener for any video play event
+	videoElem.addEventListener('play', function() {
+		showControls();
+	});
+
+	// add eventlistener for any video pause event
+	videoElem.addEventListener('pause', function() {
+		showControls();
+	});
+
+	videoElement.addEventListener('error', function() {
 		/* Video playback failed: show an error message */
 		switch (videoElem.error.code) {
 			case 1:
@@ -89,8 +140,21 @@ var init = function () {
 			}
 			break;
 		}
-		}, false);
-	};
+	}, false);
+
+	SpatialNavigation.init();
+
+	// Define navigable elements (anchors and elements with "focusable" class).
+	SpatialNavigation.add({
+		selector: '#player, .qualitySelect'
+	});
+
+	SpatialNavigation.makeFocusable();
+
+	// Focus the first navigable element.
+	SpatialNavigation.focus();
+};
+
 // window.onload can work without <body onload="">
 window.onload = init;
 
@@ -138,6 +202,51 @@ function getVideo() {
 		sources.forEach(function (source) {
 			$("#player").append("<source src='"+ source["progressiveDownloadURL"] +"' label='"+ source["label"] +"' type='video/mp4'/>");
 		});
+	});
+
+	// select the highest quality video source
+	var video = document.getElementById("player");
+	video.addEventListener("loadedmetadata", function() {
+		var playerVideo = document.getElementById("player");
+		var qualitySelect = document.getElementById("qualitySelect");
+
+		var sources = playerVideo.getElementsByTagName("source");
+		var qualities = [];
+		for (var i = 0; i < sources.length; i++) {
+			qualities.push(sources[i].getAttribute("label"));
+		}
+
+		qualities.forEach(function(quality) {
+			if (qualitySelect.options.length < qualities.length) {
+				var option = document.createElement("option");
+				option.text = quality;
+				option.value = quality;
+				qualitySelect.add(option);
+			}
+		});
+
+		qualitySelect.addEventListener("change", function() {
+			var selectedQuality = qualitySelect.options[qualitySelect.selectedIndex].value;
+			for (var i = 0; i < sources.length; i++) {
+				if (sources[i].getAttribute("label") == selectedQuality) {
+					playerVideo.src = sources[i].src;
+					playerVideo.play();
+				}
+			}
+		});
+
+		if (firstTimeLaunch == true) {
+			qualitySelect.selectedIndex = qualities.length - 1;
+
+			// if video quality isn't the one selected, change it
+			if (playerVideo.src != sources[sources.length - 1].src) {
+				playerVideo.src = sources[sources.length - 1].src;
+				playerVideo.load();
+				playerVideo.play();
+			}
+
+			firstTimeLaunch = false;
+		}
 	});
 }
 
