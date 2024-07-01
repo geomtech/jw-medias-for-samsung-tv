@@ -59,9 +59,9 @@ var init = function () {
 
 	getVideo();
 
-	videoElement.addEventListener('error', function() {
+	videoElem.addEventListener('error', function() {
 		/* Video playback failed: show an error message */
-		switch (videoElement.error.code) {
+		switch (videoElem.error.code) {
 			case 1:
 			// 'MEDIA_ERR_ABORTED : 1, Media data download is stopped by the user'
 			if (urlCategory == "FeaturedLibraryVideos") {
