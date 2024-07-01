@@ -24,6 +24,10 @@ var init = function () {
     	case 13: //OK button
 			if ($(document.activeElement).hasClass("media")) {
 				window.open($(document.activeElement).attr("video"))
+			} else if ($(document.activeElement).hasClass("category")) {
+				window.open($(document.activeElement).attr("category"))
+			} else if ($(document.activeElement).hasClass("media-featured")) {
+				window.open($(document.activeElement).attr("video"))
 			}
     		break;
     	case 10009: //RETURN button
@@ -52,6 +56,9 @@ var init = function () {
 window.onload = init;
 
 function getFeaturedVideo() {
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const categoryParameter = urlParams.get('category');
 	$.getJSON("https://b.jw-cdn.org/apis/mediator/v1/categories/F/FeaturedLibraryVideos?detailed=1&clientType=www", function (data) {
 		$.each(data, function (key, val) {
 			$.each(val, function (key, category) {
@@ -59,7 +66,7 @@ function getFeaturedVideo() {
 					$.each(category, function (key, media) {
 						$('.featured').append("<img class='rounded-4' src='" + media['images']['pnr']['lg'] + "' />");
 						$('.featured').append("<h1 class='display-2 position-absolute bottom-0 start-0 p-4 pb-5'>" + media['title'] + "</h1>")
-						$('.media-featured').attr('video', "player.html?category=" + val['key'] + "&id=" + media["naturalKey"] + "");
+						$('.media-featured').attr('video', "player.html?category=" + categoryParameter + "&id=" + media["naturalKey"] + "");
 					});
 				}
 			});
@@ -86,7 +93,7 @@ function getVideos() {
 								if (count == 0) {
 									$('.featured').append("<img class='rounded-4' src='" + video['images']['pnr']['lg'] + "' />");
 									$('.featured').append("<h3 class='display-5 position-absolute bottom-0 start-0 p-4 pb-5'>" + video['title'] + "</h3>")
-									$('.media-featured').attr('video', "player.html?category=" + val['key'] + "&id=" + video["naturalKey"] + "");
+									$('.media-featured').attr('video', "player.html?category=" + categoryParameter + "&id=" + video["naturalKey"] + "");
 									count =+ 1;
 								}
 							});
