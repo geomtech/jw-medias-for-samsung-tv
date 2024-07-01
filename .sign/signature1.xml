@@ -34,8 +34,8 @@ KqnFcqjqHw==</DigestValue>
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>998rL2ILFOu1FdtpLFA0eMCeZBQxAK4uJvXmveH/eKpdZ694pB6ZDwmVyvYBPtOq2rNP1hJpJLoU
-YTPvzFVMUw==</DigestValue>
+<DigestValue>Dt1Hi/mEM+kYteZr0E3VZ+emzUZE4X47CKmG1hGIt0mGmiURobcxR4gGxVvRnf8ZYc8vQfYMIxvV
+DyN+Hjd08Q==</DigestValue>
 </Reference>
 <Reference URI="category.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -209,8 +209,8 @@ ethNL79xRQ==</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>OEJzOWQbTxZulH0Sxb+a+qxsiRgcYQIw+WwCUfo88AyRfII7Nsu02Oxqf/nP1DdXnoH1K4KKUXKx
-mOoetgtNGA==</DigestValue>
+<DigestValue>s4izLuEBybu/+pAa+0xoBLqRknE6MJsITHs+2iHUYVlWGtEmtVFoy6fUKT5KmdgR5bDHfpucSHfV
+6us3zE54FA==</DigestValue>
 </Reference>
 <Reference URI="debug.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -309,8 +309,8 @@ ZPtyH7IQrw==</DigestValue>
 </Reference>
 <Reference URI="js%2Fplayer.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>OHKaD6WBVMB+UqvMRI9EuYLVmymCr2VANKmcAr4cUR3e30j8fadoTYMCEN4K2Em80pGsQexU2ufe
-X+1SuEYWTw==</DigestValue>
+<DigestValue>MznE7eTRKLidQ35FK2hA4RCmjXc6QAp63hCVztxMkQpjj8E6an+eJpJ5DiLcfgHrBKgoicBvYp0i
+5s3QwVEGuA==</DigestValue>
 </Reference>
 <Reference URI="js%2Fspatial_navigation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -369,8 +369,8 @@ Og2ajrxpRg==</DigestValue>
 </Reference>
 <Reference URI="player.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>qrOBl36qb1L9uPQnjD6hmMkEJDe9F/Y4dv3h6/AX4atounPh7+I4Lc6GJSPkus0ZL47+/SuqOMTZ
-44cxBo9xYw==</DigestValue>
+<DigestValue>kFtZeeSDyDgHRNfXlXEyOrlDkoJXRXRJopCdodUxdsRbcUrtdiJmRtlqWPjPavlETKUZsCz1moId
+UCOr0oJUpg==</DigestValue>
 </Reference>
 <Reference URI="response.json">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -397,9 +397,9 @@ GyvKX9Snig==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-W2m3WL7OzvJXM/EaPrZLftEQKX/ElR5QTpiBJnFeXbmSh82mYvuxdr5yroa0r23MOab/YmSwQD7s
-XC5WTWbF8h1IhnqdopCMPjykA4Kw5IhtuTFGNEeohlYdP5WfgIBLvu63SzwBPy71jWOlXGJXtGUv
-uHjDvkMPvf3umuKzQIM=
+G6bDHFv+NqjHBq3eNlZKVQ1WY/TIBpuK5eGHcWzYulVbhahufXpKRKx5Y5i/5TFnh2Xwr1HqiVi9
+f4XuoWE1wlkSSuBGds+6yzjCs6bFC3bByDJZNQyxLFqY/TuLQknvZwKGz/tjzXiQ1ZhlscfJdFHJ
+AFJWbcyEe6uJyQqc0Ts=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

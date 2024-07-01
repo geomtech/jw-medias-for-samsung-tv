@@ -14,6 +14,10 @@
     <script src="js/player.js"></script>
     <script src="js/spatial_navigation.js"></script>
     <style>
+        * {
+            /* no scolling possible */
+            overflow: hidden;
+        }
         html,
         body {
             max-height: 100vh;
@@ -60,7 +64,7 @@
             <input type="range" id="progressBar" value="0" min="0" step="0.1">
         </div>
         <span id="endTime">0:00</span>
-        <select id="qualitySelect">
+        <select class="qualitySelect" id="qualitySelect">
         </select>
     </div>
     <script>

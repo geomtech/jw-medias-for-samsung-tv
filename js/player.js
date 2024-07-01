@@ -17,21 +17,21 @@ var init = function () {
     });
 
 	// add eventlistener for any keydown event
-	document.addEventListener('keydown', function(e) {
-		showControls();
-	});
+	//document.addEventListener('keydown', function(e) {
+	//	showControls();
+	//});
  
     // add eventListener for keydown
     document.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
-    	case 37: //LEFT arrow
-    		break;
-    	case 38: //UP arrow
-    		break;
-    	case 39: //RIGHT arrow
-    		break;
-    	case 40: //DOWN arrow
-    		break;
+    	//case 37: //LEFT arrow
+    	//	break;
+    	//case 38: //UP arrow
+    	//	break;
+    	//case 39: //RIGHT arrow
+    	//	break;
+    	//case 40: //DOWN arrow
+    	//	break;
 		case 10252: // PLAY PAUSE button
 			if (videoElem.paused) {
 				videoElem.play();
@@ -110,7 +110,7 @@ var init = function () {
 		showControls();
 	});
 
-	videoElement.addEventListener('error', function() {
+	videoElem.addEventListener('error', function() {
 		/* Video playback failed: show an error message */
 		switch (videoElem.error.code) {
 			case 1:
@@ -146,7 +146,7 @@ var init = function () {
 
 	// Define navigable elements (anchors and elements with "focusable" class).
 	SpatialNavigation.add({
-		selector: '#player, .qualitySelect'
+		selector: '.qualitySelect'
 	});
 
 	SpatialNavigation.makeFocusable();
