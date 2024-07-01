@@ -60,10 +60,6 @@
         </div>
         <span id="endTime">0:00</span>
         <select id="qualitySelect">
-            <option value="720p">720p</option>
-            <option value="480p">480p</option>
-            <option value="360p">360p</option>
-            <option value="240p">240p</option>
         </select>
     </div>
     <script>
@@ -96,8 +92,6 @@
             playerVideo.currentTime = (progressBar.value / 100) * duration;
         });
 
-        playerVideo.addEventListener('play', showControls);
-        playerVideo.addEventListener('pause', showControls);
         playerVideo.addEventListener('mousemove', showControls);
 
         function formatTime(seconds) {
@@ -105,24 +99,6 @@
             seconds = Math.floor(seconds % 60);
             return minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
         }
-
-        qualitySelect.addEventListener('change', function () {
-            var currentTime = playerVideo.currentTime;
-            var selectedQuality = qualitySelect.value;
-            var sources = playerVideo.querySelectorAll('source');
-
-            sources.forEach(function (source) {
-                if (source.getAttribute('label') === selectedQuality) {
-                    playerVideo.src = source.getAttribute('src');
-                    playerVideo.load();
-
-                    playerVideo.addEventListener('loadedmetadata', function () {
-                        playerVideo.currentTime = currentTime;
-                        playerVideo.play();
-                    });
-                }
-            });
-        });
 
         if (playerVideo.requestFullscreen) {
             playerVideo.requestFullscreen();
