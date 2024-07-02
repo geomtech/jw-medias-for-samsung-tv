@@ -217,6 +217,26 @@ WrC4eJGR3w==</DigestValue>
 <DigestValue>BTGBG483ma/3HgWnreWF2xbdzr4F0gTRWjwxoSV+7kKBWt4UJTuv5WE4DhKdU4in2kwn/55O/qPD
 bNc/wgCuGg==</DigestValue>
 </Reference>
+<Reference URI="images%2Fgear.svg">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>eKbSpfSalY5rbRc9aXBVau8SGfPxN3DfLeINa6kgTf1Cu9dg4oc1hkX7El4Xa+Y0sHawDK5KsGB+
+LVsRJ71wdQ==</DigestValue>
+</Reference>
+<Reference URI="images%2Fpause.svg">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>yA9Uo07NqoaYjUfrVp+LS0/9JLRb9jKMsy+/Zyxr58pE3W3blz2RakE/nMlslYsmLO98/pPKc3Iy
+4Us8gwKOag==</DigestValue>
+</Reference>
+<Reference URI="images%2Fplay.svg">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>KVfMQkRFxIkLUZRAtimiudM6HIaXhuf+9xVYmqeTfj42juO/WJqdt4NT32sTW1PxuszNAe2TDgsl
+HvuhW7LqmQ==</DigestValue>
+</Reference>
+<Reference URI="images%2Fskip-backward.svg">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
+<DigestValue>8+D50KeKNYt5MJee+qTxG9yK7BcQzaoIAjHL3esnvbQwEi61b/S3m8gSlVFehWpK7ccUM4FjfxIk
+7Wtm+OGESg==</DigestValue>
+</Reference>
 <Reference URI="images%2Fvideo.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
 <DigestValue>B88KlUotpU5BDSKz1cpNYaQpI3E/UczWQH7oHKmXYwR/Olr7N26vhdbNvYR2bgoFopW1Nh6OXxI7
@@ -304,8 +324,8 @@ ZPtyH7IQrw==</DigestValue>
 </Reference>
 <Reference URI="js%2Fplayer.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>MznE7eTRKLidQ35FK2hA4RCmjXc6QAp63hCVztxMkQpjj8E6an+eJpJ5DiLcfgHrBKgoicBvYp0i
-5s3QwVEGuA==</DigestValue>
+<DigestValue>/6X4KBcrDI3LC1Dh9kAFWhGVVVLNdmTxZ8T7RBzI+1qahlS5afYlXIhvajCDgw2UG8QwhSXx187W
+CEU4Sb3sSw==</DigestValue>
 </Reference>
 <Reference URI="js%2Fspatial_navigation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -364,8 +384,8 @@ Og2ajrxpRg==</DigestValue>
 </Reference>
 <Reference URI="player.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>kFtZeeSDyDgHRNfXlXEyOrlDkoJXRXRJopCdodUxdsRbcUrtdiJmRtlqWPjPavlETKUZsCz1moId
-UCOr0oJUpg==</DigestValue>
+<DigestValue>HHDQbhPtBqHvK7OnvUb+cq63nEfVJuJxp9HuuqMvvonYzbri2umfmdusCEok8FF3RlCes/QsQu+j
+FJQmvh6j+A==</DigestValue>
 </Reference>
 <Reference URI="response.json">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -392,9 +412,9 @@ QY10fG1EWQ==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-k9Ix+FJVIoOAfJjEAjOqzmgJWCDzA7m8I3BALUWFQSebIE+iqcPwxYmx+shtGC5wUFaBd2I+PKz1
-fYU6wfwIFyIDHavm8O/hZZBt0H5wWaDck9Pnu7Be8sAyq/t+riw35esl9S4dXTw9la7ACRkS9f0c
-wTLRO2EhkZw7+tiMk1E=
+kg0N5AqqrKYZqGt9PLmwOSeEXXHzUbShlNvND5XuzY08SbQJnL/0bFvL1i8iZDLWxntD8d3lCeMX
+aNAxz2Pz2MorlqUYyPi36tC1uUFW4rd9qI3vPaunG9ZKZITq0L5CUQfZ4tcVT6GKLjbefH6UbDBm
+tnoem+DanY3JYxLHgPA=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

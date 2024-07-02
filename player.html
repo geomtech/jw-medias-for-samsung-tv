@@ -49,23 +49,125 @@
         #progress input {
             width: 100%;
         }
+
+        /* Hide the original select element */
+        #qualitySelect {
+            display: none;
+        }
+
+        #pause {
+            display: none;
+        }
+
+        .progressBar-container {
+            width: 100%;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #progress {
+            position: relative;
+            width: 80%;
+            height: 10px;
+            background-color: #e0e0e0; /* Light gray */
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        #progressBar {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 100%;
+            background: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        #progressBar::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 100%;
+            background: #ffffff; /* White */
+            border-radius: 5px;
+        }
+
+        #progressBar::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #0078D4; /* Blue similar to Apple TV+ */
+            border-radius: 50%;
+            margin-top: -5px; /* Center the thumb */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #progressBar::-moz-range-track {
+            width: 100%;
+            height: 100%;
+            background: #ffffff; /* White */
+            border-radius: 5px;
+        }
+
+        #progressBar::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #0078D4; /* Blue similar to Apple TV+ */
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #progressBar::-ms-track {
+            width: 100%;
+            height: 100%;
+            background: #ffffff; /* White */
+            border-radius: 5px;
+            border: none;
+            color: transparent;
+        }
+
+        #progressBar::-ms-thumb {
+            width: 20px;
+            height: 20px;
+            background: #0078D4; /* Blue similar to Apple TV+ */
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 
 <body>
-    <video autoplay="true" preload="auto" id="player" width="100%" height="100%">
+    <video autoplay="true" preload="auto" id="player" width="100%" height="100%" class="focusable">
         <p>
             There is a problem with the video. Visit JW.ORG please.
         </p>
     </video>
-    <div id="controls">
-        <span id="currentTime">0:00</span>
-        <div id="progress">
-            <input type="range" id="progressBar" value="0" min="0" step="0.1">
-        </div>
-        <span id="endTime">0:00</span>
-        <select class="qualitySelect" id="qualitySelect">
-        </select>
+    <div id="controls-panel" class="w-100">        
+        <div id="controls" class="d-flex flex-column w-100">
+            <div class="progressBar-container w-100">
+                <div id="progress">
+                    <input type="range" id="progressBar" class="focusable" value="0" min="0" step="0.1">
+                </div>
+            </div>
+            <div id="status-container" class="d-flex justify-content-between w-100">
+                <p id="title">Lecture ● </p>
+                <p><span id="currentTime">0:00</span>/<span id="endTime">0:00</span></p>
+            </div>
+            <div id="play-pause-panel" class="d-flex justify-content-between w-100">
+                <div>
+                    <img class="focusable" id="play" src="images/play.svg" alt="Play the video" height="48px" width="48px">
+                    <img class="focusable" id="pause" src="images/pause.svg" alt="Pause the video" height="48px" width="48px">
+                    <img class="focusable" id="skip-backward" src="images/skip-backward.svg" alt="skip backward" height="48px" width="48px">
+                </div>
+                <div>
+                    <img id="quality-selection-button" class="focusable" src="images/gear.svg" alt="quality selection" height="48px" width="48px">
+                    <select class="qualitySelect" id="qualitySelect">
+                    </select>
+                </div>
+            </div>
+        </div>        
     </div>
     <script>
         var playerVideo = document.getElementById("player");
@@ -78,10 +180,19 @@
 
         function showControls() {
             controls.style.opacity = 1;
-            clearTimeout(controlsTimeout);
-            controlsTimeout = setTimeout(function () {
-                controls.style.opacity = 0;
-            }, 3000);
+        }
+
+        function hideControls() {
+            controls.style.opacity = 0;
+            playerVideo.focus();
+        }
+
+        function openQualityMenu() {
+            const selectElement = document.getElementById('qualitySelect');
+            selectElement.style.display = 'block'; // Temporarily display the select element
+            selectElement.focus(); // Focus on the select element
+            selectElement.click(); // Simulate the click event to open the dropdown
+            selectElement.style.display = 'none'; // Hide the select element again
         }
 
         playerVideo.addEventListener('timeupdate', function () {

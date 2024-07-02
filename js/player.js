@@ -3,6 +3,15 @@ var firstTimeLaunch = true;
 //Initialize function
 var init = function () {
 	let videoElem = document.getElementById("player");
+	let progressBar = document.getElementById("progressBar");
+	let playButton = document.getElementById("play");
+	let pauseButton = document.getElementById("pause");
+	let skipBackwardButton = document.getElementById("skip-backward");
+	let qualityButton = document.getElementById("quality-selection-button");
+	let qualitySelect = document.getElementById("qualitySelect");
+
+	const interactiveElements = [progressBar, qualitySelect, qualityButton, skipBackwardButton, playButton, pauseButton];
+
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const id = urlParams.get('id');
@@ -24,12 +33,18 @@ var init = function () {
     // add eventListener for keydown
     document.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
-    	//case 37: //LEFT arrow
-    	//	break;
+    	case 37: //LEFT arrow
+			if (document.activeElement == progressBar) {
+				windBackward();
+			}
+				break;
     	//case 38: //UP arrow
     	//	break;
-    	//case 39: //RIGHT arrow
-    	//	break;
+    	case 39: //RIGHT arrow
+			if (document.activeElement == progressBar) {
+				windForward();
+			}
+				break;
     	//case 40: //DOWN arrow
     	//	break;
 		case 10252: // PLAY PAUSE button
@@ -40,11 +55,36 @@ var init = function () {
 			}
 			break;
     	case 13: //OK button
-			if (videoElem.paused) {
+			// si rien n'est focused, comportement normal.
+			const interactiveElements = [progressBar, qualitySelect, qualityButton, skipBackwardButton, playButton, pauseButton];
+
+			if (!interactiveElements.includes(document.activeElement)) {
+				if (videoElem.paused) {
+					videoElem.play();
+				} else {
+					videoElem.pause();
+				}
+			}
+
+			// si un élément est focused, on gère le comportement.
+			if (document.activeElement == progressBar) {
+				if (videoElem.paused) {
+					videoElem.play();
+				} else {
+					videoElem.pause();
+				}
+			} else if (document.activeElement == qualityButton) {
+				// open select
+				qualitySelect.focus();
+				qualitySelect.display = "block";
+			} else if (document.activeElement == skipBackwardButton) {
+				videoElem.currentTime = 0;
+			} else if (document.activeElement == playButton) {
 				videoElem.play();
-			} else {
+			} else if (document.activeElement == pauseButton) {
 				videoElem.pause();
 			}
+
     		break;
     	case 10009: //RETURN button
 			if (urlCategory == "FeaturedLibraryVideos") {
@@ -102,12 +142,21 @@ var init = function () {
 
 	// add eventlistener for any video play event
 	videoElem.addEventListener('play', function() {
+		pauseButton.style.display = "inline-flex";
+		playButton.style.display = "none";
 		showControls();
 	});
 
 	// add eventlistener for any video pause event
 	videoElem.addEventListener('pause', function() {
+		pauseButton.style.display = "none";
+		playButton.style.display = "inline-flex";
 		showControls();
+	});
+
+	// focus on the video player
+	videoElem.addEventListener('focus', function() {
+		hideControls();
 	});
 
 	videoElem.addEventListener('error', function() {
@@ -146,7 +195,7 @@ var init = function () {
 
 	// Define navigable elements (anchors and elements with "focusable" class).
 	SpatialNavigation.add({
-		selector: '.qualitySelect'
+		selector: '.focusable'
 	});
 
 	SpatialNavigation.makeFocusable();
@@ -216,6 +265,8 @@ function getVideo() {
 			qualities.push(sources[i].getAttribute("label"));
 		}
 
+		qualitySelect.options = [];
+
 		qualities.forEach(function(quality) {
 			if (qualitySelect.options.length < qualities.length) {
 				var option = document.createElement("option");
@@ -229,8 +280,10 @@ function getVideo() {
 			var selectedQuality = qualitySelect.options[qualitySelect.selectedIndex].value;
 			for (var i = 0; i < sources.length; i++) {
 				if (sources[i].getAttribute("label") == selectedQuality) {
+					var timeOfVideo = playerVideo.currentTime;
 					playerVideo.src = sources[i].src;
 					playerVideo.play();
+					playerVideo.currentTime = timeOfVideo;
 				}
 			}
 		});
