@@ -1,0 +1,61 @@
+# Tizen specific build directories and files
+.build/
+build/
+bin/
+libs/
+data/
+
+# IDE specific files
+.settings/
+.project
+.cproject
+.idea/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Object files and libraries
+*.o
+*.a
+*.so
+
+# Tizen signing and packaging files
+.tizen/
+certificates.p12
+
+# User-specific files
+*.user
+*.userprefs
+
+# Dependency directories and files
+node_modules/
+bower_components/
+plugins/
+
+# Mac specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
+
+# Tizen native app build files
+.arm-eabi/
+.d/
+
+# Exclude built shared libraries and executables
+libs/**/*.so
+libs/**/*.a
+libs/**/*.o
+libs/**/*.dll
+libs/**/*.lib
+libs/**/*.exe
+
+# Exclude build output directories
+Debug/
+Release/
+profile/
